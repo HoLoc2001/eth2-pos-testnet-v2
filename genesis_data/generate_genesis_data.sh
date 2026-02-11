@@ -24,7 +24,7 @@ esac
 docker run --rm -it \
 -v $PWD/el-cl-genesis-data:/data \
 -v $PWD/values.env:/config/values.env \
-ethpandaops/ethereum-genesis-generator:3.2.1 all
+ethpandaops/ethereum-genesis-generator:5.2.5 all
 
 # 重命名文件夹
 sudo mv el-cl-genesis-data/metadata el-cl-genesis-data/network-configs

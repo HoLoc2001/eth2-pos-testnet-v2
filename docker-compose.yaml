@@ -11,7 +11,7 @@ services:
     networks:
       network_eth:
         ipv4_address: 172.28.0.2
-    image: ethereum/client-go:v1.13.14
+    image: ethereum/client-go:v1.16.8
     command:
       - --networkid=3151908
       - --state.scheme=hash
@@ -52,7 +52,7 @@ services:
     container_name: beacon-l1
     networks:
       - network_eth
-    image: sigp/lighthouse:v5.3.0
+    image: sigp/lighthouse:v8.1.0
     command:
       - lighthouse
       - beacon_node
@@ -80,7 +80,7 @@ services:
       - --metrics-port=5054
       - --enable-private-discovery
       - --testnet-dir=/el-cl-genesis-data/network-configs
-      # - --disable-sync-committee-subnets #fix WARN Could not publish message kind: sync_committee_0, error: InsufficientPeers, service: libp2p
+      - --disable-sync-committee-subnets #fix WARN Could not publish message kind: sync_committee_0, error: InsufficientPeers, service: libp2p
     volumes:
       - ./data/consensus-data:/consensus-data
       - ./genesis_data/el-cl-genesis-data:/el-cl-genesis-data
@@ -93,7 +93,7 @@ services:
     networks:
       network_eth:
         ipv4_address: 172.28.0.4
-    image: sigp/lighthouse:v5.3.0
+    image: sigp/lighthouse:v8.1.0
     command:
       - lighthouse
       - vc
